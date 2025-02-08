@@ -34,6 +34,9 @@ namespace infini
         // REF: https://onnx.ai/onnx/operators/onnx__Transpose.html#transpose-21
         // =================================== 作业 ===================================
 
+        if (size_t(rank) != this->transposePermute.size()) {
+            return std::nullopt;
+        }
         for (int i = 0; i < rank; i++) {
             output_dim[i] = input_dim[this->transposePermute[i]];
         }
